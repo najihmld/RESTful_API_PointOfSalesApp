@@ -19,6 +19,18 @@ yarn start
 ```
 
 #### Folder Directory
+src\controller\category.js
+src\controller\products.js
+src\controller\orders.js
+
+src\model\category.js
+src\model\products.js
+src\model\orders.js
+
+src\routes\category.js
+src\routes\products.js
+src\routes\orders.js
+
 
 
 #### Documentasi API
