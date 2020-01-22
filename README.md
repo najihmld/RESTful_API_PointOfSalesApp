@@ -1,6 +1,6 @@
 <h1 align="center">Point of Sales APP <br>RESTful API with Express.js</h1>
 
-# REVIEW
+#### Overview
 
 Point of Sales APP adalah API yang memungkinkan pengguna untuk membaca informasi penjualan produk. Aplikasi ini juga memungkinkan pengguna untuk membaca, membuat, memperbarui, dan menghapus informasi produk dan kategorinya ke atau dari database.
 
@@ -9,14 +9,19 @@ Point of Sales APP adalah API yang memungkinkan pengguna untuk membaca informasi
 
 
 
-
-## Getting Started
-
-#### Clone the repo and make it yours:
+#### Installation
 
 ```bash
 git clone https://github.com/najihmld/RESTful_API_PointOfSalesApp.git
-cd
+cd RESTful_API_PointOfSalesApp
 yarn install
 yarn start
 ```
+
+#### Folder Directory
+
+
+#### Documentasi API
+
+
+
