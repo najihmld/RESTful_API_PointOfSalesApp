@@ -3,7 +3,7 @@ const {
     postCategory,
     putCategory,
     deleteCategory
-} = require('../model/category');
+} = require('../models/category');
 const helper = require('../helper');
 
 module.exports = {

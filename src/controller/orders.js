@@ -1,4 +1,4 @@
-const {setIdOrder, getPrice, setDetailOrder, setTotalPrice, getOrdersData} = require('../model/orders')
+const {setIdOrder, getPrice, setDetailOrder, setTotalPrice, getOrdersData} = require('../models/orders')
 const helper = require('../helper')
 
 

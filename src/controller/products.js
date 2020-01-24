@@ -1,4 +1,4 @@
-const {getProducts, postProducts, putProducts, deleteProduct, getProductsBy} = require('../model/products')
+const {getProducts, postProducts, putProducts, deleteProduct, getProductsBy} = require('../models/products')
 const helper = require('../helper')
 
 module.exports = {
