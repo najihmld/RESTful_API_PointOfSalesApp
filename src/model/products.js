@@ -33,7 +33,7 @@ module.exports = {
             let sort = ''
             
             if (cond.p) {
-                find = ` WHERE name LIKE '%${cond.p}%'` 
+                find = ` WHERE name LIKE '%${cond.name}%'` 
             } 
             if(cond.page){
                 limit =  ` LIMIT ${cond.page}`

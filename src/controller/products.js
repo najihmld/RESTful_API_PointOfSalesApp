@@ -10,7 +10,7 @@ module.exports = {
     getProductsBy: async (request, response) => {
         try{
             const cond = {
-                p: request.query.p,
+                name: request.query.name,
                 page: request.query.page,
                 sortby: request.query.sortby
             }

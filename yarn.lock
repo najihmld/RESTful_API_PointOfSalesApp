@@ -741,6 +741,11 @@ make-dir@^1.0.0:
   dependencies:
     pify "^3.0.0"
 
+map@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/map/-/map-1.0.1.tgz#98aa24c25dc5f68f1a9e0a91ee2ff0816334ac56"
+  integrity sha1-mKokwl3F9o8angqR7i/wgWM0rFY=
+
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
@@ -986,6 +991,11 @@ qs@6.7.0:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
   integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
+
+random-id@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/random-id/-/random-id-1.0.3.tgz#e9d7183caa1759a68582f3da4230454aded0eea3"
+  integrity sha512-PbWMyIFUTeGWkqHTovth3Ww2i1zg54BubSwSTw4VVptfC2TlhMKo1CzfRUosz7ltJmfgJ/wrLEt/nyDf5Glx/Q==
 
 range-parser@~1.2.1:
   version "1.2.1"

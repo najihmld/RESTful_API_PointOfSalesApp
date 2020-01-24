@@ -5,7 +5,9 @@ module.exports = {
         return new Promise((resolve, reject) => {
             connection.query('INSERT INTO orders SET id=?', randomId, (error, result) => {
                 if(!error){
-                    const getSubtotal = []
+
+                    let getSubtotal = []
+                    setTimeout(() => {
                     setData.orders.map( item => {
                        const orderData = {
                             order_id: randomId,
@@ -33,14 +35,25 @@ module.exports = {
                             
                         }
           
-                    });
+                    }) },1000)
 
 
-                    const sum = getSubtotal.reduce((total, value) => total + value, 0);
-                    const getTotal = (10/100 * sum) + sum
-                    console.log(getTotal);
+                setTimeout(() => {
+                
+                const sum = getSubtotal.reduce((total, value) => total + value, 0);
+                const getTotal = (10/100 * sum) + sum
+              
+                console.log(getTotal);
 
-
+                connection.query('UPDATE orders SET total=? WHERE id=?', [getTotal, randomId] , (error, result) => {
+                        if(!error){
+                            resolve(setData)
+                        }else{
+                            reject(new Error(error))
+                        }
+                    })
+                    
+                }, 2000)
                 } else{
                     reject(new Error(error))
                 }
@@ -52,8 +65,6 @@ module.exports = {
 
     },
     getOrdersData: () => {
-      
-        
         return new Promise((resolve, reject) => {
             connection.query('SELECT * FROM orders', (error, result) => {
                 if(!error) {

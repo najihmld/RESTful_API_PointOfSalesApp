@@ -23,6 +23,8 @@ app.listen(3001, '127.0.0.1', () => {
   console.log('Listening on 127.0.0.1');
 });
 
+// const public = express.static(path.join(__dirname, 'public/images'))
+// app.use('/public/images', public)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
