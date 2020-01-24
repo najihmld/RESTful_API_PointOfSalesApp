@@ -1,16 +1,16 @@
 const connection = require('../config/mysql')
 
 module.exports = {
-    setIdOrder: (invoice, total) => {
- 
+    setIdOrder: (invoice) => {
         return new Promise((resolve, reject) => {
-            connection.query('INSERT INTO orders SET id=?', invoice, (error, result) => {
+            connection.query('INSERT INTO orders SET invoice=?', invoice, (error, result) => {
                 if(!error) { 
                     const newResult = {
                         invoice: invoice,
                         message: 'Successful order'
                     }
                     resolve(newResult)
+                    // resolve(invoice)
                 } else {
                     reject(new Error(error));
                 }
@@ -38,9 +38,9 @@ module.exports = {
             })
         })
     },
-    setTotalPrice: (requestOrder, total) => {                
+    setTotalPrice: (total, invoice) => {                       
        return new Promise((resolve, reject) => {
-           connection.query('UPDATE orders SET total=? WHERE id=?', [total, requestOrder], (error, result) => {
+           connection.query('UPDATE orders SET total=? WHERE invoice=?', [total, invoice], (error, result) => {
                if(!error){
                    resolve(result)
                } else{
@@ -53,10 +53,8 @@ module.exports = {
         return new Promise((resolve, reject) => {
             connection.query('SELECT * FROM orders', (error, result) => {
                 if(!error) {
-                    // const newResult = {
-                    //     invoice:
-                    // }
-                    resolve(newResult);
+
+                    resolve(result);
                 } else{
                     reject(new Error(error))
                 }

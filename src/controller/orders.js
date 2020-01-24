@@ -18,7 +18,7 @@ module.exports = {
                 }
 
                    const orderData = {
-                       order_id: requestOrder,
+                       invoice: invoice,
                        product_id: element.product_id,
                        qty: element.qty,
                        subtotal: newprice.price*element.qty
@@ -26,7 +26,7 @@ module.exports = {
                    await setDetailOrder(orderData)
 
                    total += newprice.price*element.qty
-                   await setTotalPrice(requestOrder, total)     
+                   await setTotalPrice(total, invoice)     
                   
                      
             })
