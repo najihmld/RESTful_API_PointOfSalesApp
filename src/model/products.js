@@ -32,7 +32,7 @@ module.exports = {
             let limit = ''
             let sort = ''
             
-            if (cond.p) {
+            if (cond.name) {
                 find = ` WHERE name LIKE '%${cond.name}%'` 
             } 
             if(cond.page){
@@ -108,16 +108,13 @@ module.exports = {
                 if(image != ''){
                     fs.unlink(image, error => {
                         if(error) throw error
-                        console.log('Image deleted');
                     })
-                } else{
-                    console.log('Success');
-                    
                 }
                 connection.query('DELETE from products WHERE id=?', id, (error, result) => {
                     if(!error){
                         const newResult = {
-                            id: id
+                            id: id,
+                            message: 'Success deleted!'
                         }
                         resolve(newResult);
                     } else{

@@ -13,10 +13,19 @@ const storage = multer.diskStorage({
     
 })
 
+// set filter image
+const fileFilter = function(request, file, cb) {
+    if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
+        return cb(new Error('Only image files are allowed!'), false)
+    }
+    cb(null, true)
+}
+
 
 //init upload
 const upload = multer({
-    storage : storage
+    storage : storage,
+    fileFilter: fileFilter
 })             
 
 

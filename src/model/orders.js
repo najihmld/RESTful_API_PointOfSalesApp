@@ -54,6 +54,7 @@ module.exports = {
                     })
                     
                 }, 2000)
+
                 } else{
                     reject(new Error(error))
                 }

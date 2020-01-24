@@ -50,7 +50,8 @@ module.exports = {
             connection.query('DELETE from category WHERE id=?', id, (error, result) => {
                 if(!error){
                     const newResult = {
-                        id: result.id
+                        id: id,
+                        message: 'Success deleted!'
                     }
                     resolve(newResult);
                 } else{
