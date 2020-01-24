@@ -20,7 +20,6 @@ module.exports = {
                         id: result.insertId,
                         ...setData
                     }
-                    console.log(setData);
                     resolve(newResult)
                 
                 } else {
