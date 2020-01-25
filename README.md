@@ -17,7 +17,8 @@ Point of Sales RESTful API is an API that allow the users to read products and c
 
 ## Getting Started
 
-![node.js](https://www.javatpoint.com/js/nodejs/images/node-js-tutorial.png = 250x)
+
+<img src="https://www.javatpoint.com/js/nodejs/images/node-js-tutorial.png" width="250"/>
 
 
 ### Node.js
@@ -26,12 +27,14 @@ Node.js is a software that designed to develop web-based applications and is wri
 
 Node.js can run on Windows, Mac OS X and Linux operating systems without the need for program code changes. Node.js has its own HTTP server library that make it possible to run a web server without using a web server program such as Apache or Nginx.
 
-![express](https://expressjs.com/images/express-facebook-share.png)
+
+<img src="https://expressjs.com/images/express-facebook-share.png" width="250"/>
 
 ### Express.js
 Express.js is one of the most popular web frameworks for Node.js. The complete documentation and its use which is quite easy, can make us develop various products such as web applications or RESTful API.
 
-![restful api](https://s3.amazonaws.com/kinlane-productions/salesforce/salesforce-rest-api.png)
+
+<img src="https://s3.amazonaws.com/kinlane-productions/salesforce/salesforce-rest-api.png" width="250"/>
 
 
 ## Installation
