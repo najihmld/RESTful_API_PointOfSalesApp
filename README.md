@@ -18,7 +18,7 @@ Point of Sales RESTful API is an API that allow the users to read products and c
 ## Getting Started
 
 
-<img src="https://www.javatpoint.com/js/nodejs/images/node-js-tutorial.png" width="250"/>
+<img src="https://www.javatpoint.com/js/nodejs/images/node-js-tutorial.png" width="180"/>
 
 
 ### Node.js
