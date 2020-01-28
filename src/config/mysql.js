@@ -1,15 +1,16 @@
-const mysql = require('mysql');
+require('dotenv/config')
+var mysql = require('mysql');
 
-const connection = mysql.createConnection({
-   host: 'localhost',
-   user: 'root',
-   password: '',
-   database: 'posapp'
-  });
+var connection = mysql.createPool({
+  host : process.env.DB_HOST,
+  user : process.env.DB_USER,
+  password : process.env.DB_PASSWORD,
+  database : process.env.DB_DATABASE
+})
 
-  connection.connect(error => {
-    if (error) throw error;
-    console.log("You're now connected...");
-  })
+// connection.connect(function(err){
+//     if(err) throw err
+//     console.log("connect")
+// })
 
-  module.exports = connection;
+module.exports = connection

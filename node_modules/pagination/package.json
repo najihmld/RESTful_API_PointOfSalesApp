@@ -1,0 +1,22 @@
+{
+	"name": "pagination",
+	"description": "Pagination for javascript/nodejs",
+	"keywords": ["pagination", "nodejs", "client"],
+	"author": "Nguyen Van Nhu",
+	"homepage": "https://github.com/vanng822/pagination",
+	"contributors": [],
+	"dependencies": [],
+	"devDependencies": {"vows": "*", "ejs": "*", "uglify-js": "*", "commander": "*"},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/vanng822/pagination.git"
+	},
+	"version": "0.4.6",
+	"scripts": {
+		"test": "vows --spec tests/*"
+	},
+	"bugs": {
+		"url": "https://github.com/vanng822/pagination/issues"
+	},
+	"license": "MIT"
+}

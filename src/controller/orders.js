@@ -4,7 +4,6 @@ const helper = require('../helper')
 
 module.exports = {
     addOrder: async(request, response) => {
-        // console.log(request.body);
         try{
             const invoice = Math.floor((Math.random() * 899999) + 100000)
             const setData = request.body

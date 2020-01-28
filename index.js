@@ -5,6 +5,7 @@ const routerNavigation = require('./src/');
 const morgan = require('morgan');
 const cors = require('cors')
 const path = require('path')
+const dotenv = require('dotenv');
 
 
 ////
@@ -20,13 +21,18 @@ app.listen(80, function(){
 })
 ///
 
-app.listen(3001, '127.0.0.1', () => {
-  console.log('Listening on 127.0.0.1');
+const port = process.env.SERVER_PORT
+const host = process.env.SERVER_HOST
+
+app.listen(port, host, () => {
+  console.log(`Listening on ${host}`)
 });
 
-const public = express.static(path.join(__dirname, '/public/images'))
+const public = express.static(path.join(__dirname,'/public/images'))
 app.use('/public/images', public)
 
+
+// app.use(express.static('/public/images'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));

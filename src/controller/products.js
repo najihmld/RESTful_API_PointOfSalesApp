@@ -1,17 +1,24 @@
 const {getProducts, postProducts, putProducts, deleteProduct, getProductsBy} = require('../models/products')
 const helper = require('../helper')
+// const { pagination } = require('../models/page')
+
 
 module.exports = {
-    // getProducts: async(request, response) => {
-    //     const name = request.query.name
-    //     const result = await getProducts(name)
-    //     return helper.response(response, 200, result)
+    // getProducts: async (request, response) => {
+    //     const page = pagination(request)
+    //     try{
+    //         const result = await getProducts(request, page)
+    //         return helper.response(response, 200, result)
+    //     } catch(error){
+    //         return helper.response(response, 404, error)
+    //     }
+
     // },
     getProductsBy: async (request, response) => {
         try{
             const cond = {
                 name: request.query.name,
-                page: request.query.page,
+                limit: request.query.limit,
                 sortby: request.query.sortby
             }
             const result = await getProductsBy(cond)

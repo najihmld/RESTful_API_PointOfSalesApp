@@ -1,31 +1,8 @@
 const connection = require('../config/mysql')
 const fs = require('fs')
+const { getMaxpage } = require('./page')
 
 module.exports = {
-    // getProducts: (name) => {
-    //     return new Promise((resolve, reject) => {
-    //         if(name){
-    //             connection.query('SELECT * FROM products WHERE name=?', name, (error, result) => {
-    //                 if(!error){
-    //                     resolve(result)
-    //                     console.log(name);
-                        
-    //                 } else{
-    //                     reject(error)
-    //                 }
-    //             })
-    //         } else{
-    //             connection.query('SELECT * FROM products', (error, result) => {
-    //                 if(!error){
-    //                     resolve(result)
-    //                 } else{
-    //                     reject(error)
-    //                 }
-    //             })
-    //         }
-     
-    //     })
-    // },
     getProductsBy: (cond) => {
         return new Promise((resolve, reject) => {
             let find = ''
@@ -35,8 +12,8 @@ module.exports = {
             if (cond.name) {
                 find = ` WHERE name LIKE '%${cond.name}%'` 
             } 
-            if(cond.page){
-                limit =  ` LIMIT ${cond.page}`
+            if(cond.limit){
+                limit =  ` LIMIT ${cond.limit}`
             }
             if(cond.sortby){
                 sort = ` ORDER BY ${cond.sortby}`
