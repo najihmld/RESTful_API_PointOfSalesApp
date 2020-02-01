@@ -18,8 +18,10 @@ module.exports = {
         try{
             const cond = {
                 name: request.query.name,
-                limit: request.query.limit,
-                sortby: request.query.sortby
+                // limit: request.query.limit,
+                page: request.query.page,
+                sortby: request.query.sortby,
+                category: request.query.category
             }
             const result = await getProductsBy(cond)
             return helper.response(response, 200, result)

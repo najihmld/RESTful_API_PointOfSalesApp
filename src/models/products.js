@@ -6,23 +6,46 @@ module.exports = {
     getProductsBy: (cond) => {
         return new Promise((resolve, reject) => {
             let find = ''
-            let limit = ''
+            let cat = ''
+            let limit = ' LIMIT 0,6'
             let sort = ''
+            
+
             
             if (cond.name) {
                 find = ` WHERE name LIKE '%${cond.name}%'` 
             } 
-            if(cond.limit){
-                limit =  ` LIMIT ${cond.limit}`
+            if (cond.category) {
+                cat = ` WHERE id_category LIKE ${cond.category}` 
+            } 
+            // if(cond.limit){
+            //     limit =  ` LIMIT ${cond.limit}`
+            // }
+            if(cond.page){
+                let a = (cond.page-1)*6
+                let b = 6
+                limit = ` LIMIT ${a},${b}`
             }
             if(cond.sortby){
                 sort = ` ORDER BY ${cond.sortby}`
-            } 
-            let query = 'SELECT * FROM products'+find+sort+limit
+            }
+            
+
+
+            let query = 'SELECT * FROM products'+find+cat+sort+limit
          
             connection.query(query, (error, result) =>{
                 if (!error){
-                    resolve(result)
+                    console.log('SELECT COUNT(*) as totalResult FROM products'+find+sort+limit);
+                    
+                    let query2 = 'SELECT COUNT(*) as totalResult FROM products'+find+sort
+                    connection.query(query2, (error2, result2) => {
+                        let finalResult = {
+                            totalItems: result2[0].totalResult,
+                            items: result 
+                        }
+                        resolve(finalResult)
+                    })
                 } else {
                     reject(new Error(error))
                 }
