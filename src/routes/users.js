@@ -2,7 +2,7 @@ const express = require('express');
 const Route = express.Router();
 const { authorization } = require("../middleware/auth");
 
-const {getCategory, createCategory, editCategory, delCategory} = require('../controller/category')
+const {getUser, editUser, delUser} = require('../controller/users')
 
 // Route
 //     // .get('/', authorization, getCategory)
@@ -15,9 +15,8 @@ const {getCategory, createCategory, editCategory, delCategory} = require('../con
 
 Route
     // .get('/', authorization, getCategory)
-    .get('/', getCategory)
-    .post('/', createCategory)
-    .put('/:id',  editCategory)
-    .delete('/:id', delCategory)
+    .get('/', getUser)
+    .put('/:id',  editUser)
+    .delete('/:id', delUser)
 
 module.exports = Route;

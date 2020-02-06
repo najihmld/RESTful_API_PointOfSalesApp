@@ -26,13 +26,13 @@ module.exports = {
         return new Promise((resolve, reject) => {
             connection.query('SELECT * FROM cashier WHERE email =?', data.email, (error, result) => {
                 if(!error){
+                    const authData = {
+                        ...result[0]
+                    }
                     bcrypt.compare(data.password, result[0].password).then((result) => {
                         if (result !== false) {
-                            delete data.password
-                            const newResult = {
-                                ...data
-                            }
-                            resolve(newResult)
+                            delete authData.password
+                            resolve(authData)
                         } else {
                             reject(new Error(error))
                         }

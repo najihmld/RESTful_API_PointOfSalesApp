@@ -41,7 +41,8 @@ module.exports = {
             const result = await postProducts(setData)
             return helper.response(response, 200, result)
         } catch (error) {
-            return helper.response(response, 404, error)
+            // return helper.response(response, 404, error)
+            throw error
         }
     },
     editProduct: async (request, response) => {

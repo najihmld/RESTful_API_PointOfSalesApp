@@ -50,8 +50,9 @@ module.exports = {
        })
     },
     getOrdersData: () => {
+        const sql = 'SELECT orders.invoice, cashier.name as cashier, orders.total, orders.updated_at as date FROM orders JOIN cashier ON orders.cashier_id=cashier.id'
         return new Promise((resolve, reject) => {
-            connection.query('SELECT * FROM orders', (error, result) => {
+            connection.query(sql, (error, result) => {
                 if(!error) {
 
                     resolve(result);

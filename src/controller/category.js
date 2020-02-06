@@ -8,6 +8,7 @@ const helper = require('../helper');
 
 module.exports = {
     getCategory: async (request, response) => {
+
         const result = await getCategory();
         return helper.response(response, 200, result)
     },

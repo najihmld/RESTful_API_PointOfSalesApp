@@ -7,7 +7,7 @@ module.exports = {
         return new Promise((resolve, reject) => {
             let find = ''
             let cat = ''
-            let limit = ' LIMIT 0,6'
+            let limit = ' LIMIT 0,8'
             let sort = ''
             
 
@@ -22,8 +22,8 @@ module.exports = {
             //     limit =  ` LIMIT ${cond.limit}`
             // }
             if(cond.page){
-                let a = (cond.page-1)*6
-                let b = 6
+                let a = (cond.page-1)*8
+                let b = 8
                 limit = ` LIMIT ${a},${b}`
             }
             if(cond.sortby){
@@ -54,6 +54,7 @@ module.exports = {
     },
     postProducts: (setData) => {
         return new Promise((resolve, reject) => {
+            console.log(setData)
             connection.query('INSERT INTO products SET ?', setData, (error, result) => {
                 if(!error) {
                     const newResult = {
@@ -67,6 +68,7 @@ module.exports = {
                 }
                 
             })
+           
         })
     },
     putProducts: (setData, id) => {
