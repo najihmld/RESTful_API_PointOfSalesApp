@@ -29,7 +29,7 @@ module.exports = {
                     const authData = {
                         ...result[0]
                     }
-                    bcrypt.compare(data.password, result[0].password).then((result) => {
+                    bcrypt.compare(data.password, result[0].password  || '').then((result) => {
                         if (result !== false) {
                             delete authData.password
                             resolve(authData)
@@ -38,7 +38,7 @@ module.exports = {
                         }
                     })
                 } else{
-                    reject(new Error(error))
+                    reject(error)
                 }
             })
         })

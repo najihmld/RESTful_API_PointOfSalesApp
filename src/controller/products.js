@@ -20,6 +20,7 @@ module.exports = {
                 name: request.query.name,
                 // limit: request.query.limit,
                 page: request.query.page,
+                perPage: request.query.perPage,
                 sortby: request.query.sortby,
                 category: request.query.category
             }

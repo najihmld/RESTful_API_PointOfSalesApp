@@ -1,4 +1,5 @@
 const connection = require('../config/mysql');
+const fs = require('fs')
 
 module.exports = {
     getUser: () => {
@@ -14,17 +15,20 @@ module.exports = {
     },
     putUser: (setData, id) => {
         return new Promise((resolve, reject) => {
-            connection.query('UPDATE cashier SET ? WHERE id=?', [setData, id], (error, result) => {
-                if(!error){
-                    const newResult = {
-                        id: result.id,
-                        ...setData
+          
+                connection.query('UPDATE cashier SET ? WHERE id=?', [setData, id], (error, result) => {
+                    if(!error){
+                        const newResult = {
+                            id: result.id,
+                            ...setData
+                        }
+                        // console.log(setData); 
+                        resolve(newResult)
+                    } else{
+                        reject(new Error(error))
                     }
-                    resolve(newResult)
-                } else{
-                    reject(new Error(error))
-                }
-            })
+                })
+            
         })
     },
     deleteUser: (id) => {

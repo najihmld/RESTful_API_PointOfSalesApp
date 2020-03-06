@@ -7,8 +7,10 @@ module.exports = {
         return new Promise((resolve, reject) => {
             let find = ''
             let cat = ''
-            let limit = ' LIMIT 0,8'
             let sort = ''
+            let perPage = 8
+            let limit = ' LIMIT 0,8'
+     
             
 
             
@@ -18,13 +20,18 @@ module.exports = {
             if (cond.category) {
                 cat = ` WHERE id_category LIKE ${cond.category}` 
             } 
+            if(cond.perPage){
+                perPage = cond.perPage
+            }
             // if(cond.limit){
             //     limit =  ` LIMIT ${cond.limit}`
             // }
             if(cond.page){
-                let a = (cond.page-1)*8
-                let b = 8
+                let a = (cond.page-1)*perPage
+                let b = perPage
                 limit = ` LIMIT ${a},${b}`
+            } else{
+                limit = ` LIMIT 0,${perPage}`
             }
             if(cond.sortby){
                 sort = ` ORDER BY ${cond.sortby}`
@@ -42,6 +49,7 @@ module.exports = {
                     connection.query(query2, (error2, result2) => {
                         let finalResult = {
                             totalItems: result2[0].totalResult,
+                            perPage,
                             items: result 
                         }
                         resolve(finalResult)

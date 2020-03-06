@@ -6,6 +6,7 @@ const {
 const helper = require('../helper');
 const bcrypt = require('bcryptjs')
 const salt = bcrypt.genSaltSync(10)
+const fs = require('fs')
 
 module.exports = {
   getUser: async (request, response) => {
@@ -17,13 +18,17 @@ module.exports = {
         const setData = {
             name: request.body.name,
             email: request.body.email,
-            password: bcrypt.hashSync(request.body.password, salt)
+            password: bcrypt.hashSync(request.body.password, salt),
+            image: request.file.path
         }
         const id = request.params.id
         const result = await putUser(setData, id)
+  
         return helper.response(response, 200, result)
     } catch(error){
         return helper.response(response, 404, error)
+      
+     
     }
   },
   delUser: async (request, response) => {

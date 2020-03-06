@@ -16,9 +16,9 @@ app.use(function(req, res, next){
   res.header('Access-Control-Allow-Header', 'Origin, X-Requested-With, Content-Type, Accept')
   next()
 })
-app.listen(80, function(){
-  console.log('CORS Enable');
-})
+// app.listen(80, function(){
+//   console.log('CORS Enable');
+// })
 ///
 
 const port = process.env.SERVER_PORT
